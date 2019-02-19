@@ -1,0 +1,17 @@
+# build with:
+# $ sudo docker-compose build
+# start with:
+# $ sudo docker-compose up
+
+version: "3.7"
+services:
+  dhcpd:
+    container_name: dhcpd-alpine
+    build: .
+    network_mode: "host"
+#    command: enx0050b621aa4a
+    command: eth0
+    restart: always
+    volumes:
+      - "/home/pi/ata-provserver/isc-dhcpd/data:/data"
+

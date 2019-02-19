@@ -1,0 +1,40 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          ata-provserver
+# Required-Start:    $all
+# Required-Stop:     
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Manage my cool stuff
+### END INIT INFO
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin
+workdir="/home/pi/ata-provserver"
+
+startServer(){
+    ${workdir}/start
+}
+
+stopServer(){
+    ${workdir}/stop
+}
+
+case "$1" in
+  start)
+      startServer
+      exit 0
+  ;;
+  stop)
+      stopServer
+      exit 0
+  ;;
+  restart)      
+      stopServer
+      startServer
+      exit 0
+  ;;
+  *)
+      echo "Usage: /etc/init.d/ata-provserver {start|stop|restart}"
+      exit 1
+  ;;
+esac
