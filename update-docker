@@ -1,7 +1,6 @@
 #! /bin/bash
 
 dockerRepo="https://download.docker.com/linux/raspbian"
-composeVersion="1.24.0-rc1"
 
 # I guess the following allows installation of an https repo
 sudo apt-get install -y \
