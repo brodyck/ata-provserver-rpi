@@ -13,5 +13,5 @@ services:
     command: eth0
     restart: always
     volumes:
-      - "/home/pi/ata-provserver/isc-dhcpd/data:/data"
+      - "/home/pi/ata-provserver-rpi/isc-dhcpd/data:/data"
 
