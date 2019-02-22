@@ -1,6 +1,6 @@
 #!/bin/bash
 
-serverDir="/home/pi/ata-provserver"
+serverDir="/home/pi/ata-provserver-rpi"
 startupScript="ata-provserver"
 
 cp -f ${serverDir}/${startupScript} /etc/init.d/${startupScript}
