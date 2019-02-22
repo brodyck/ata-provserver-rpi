@@ -9,7 +9,7 @@
 ### END INIT INFO
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin
-workdir="/home/pi/ata-provserver"
+workdir="/home/pi/ata-provserver-rpi"
 
 startServer(){
     ${workdir}/start
