@@ -1,6 +1,6 @@
 **To set up on stock Raspbian:**
 1. sudo git clone https://github.com/brodyck/ata-provserver-rpi.git
-  - Make sure everything is executable 
+    - Make sure everything is executable 
 2. sudo ./update-docker 
 3. sudo ./get-provfiles # downloads files from wherever they are stored (currently a private repo)
 4. sudo ./ata-provserver enable # Enables the service on boot of RPi
@@ -9,11 +9,11 @@
 
 **To use:**
 1. Power on RPi (service takes maybe 2 minutes to start functioning? haven't timed it.)
-  - Optionally plug RPi into switch
+    - Optionally plug RPi into switch
 2. Power on ATA
 3. Factory reset ATA
 4. Connect ATA to RPi
-  - Repeat with as many ATAs as there are ports on the switch  
+    - Repeat with as many ATAs as there are ports on the switch  
 <br/>
 
 **What happens:**
