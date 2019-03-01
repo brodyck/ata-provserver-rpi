@@ -8,21 +8,19 @@ version: "3.7"
 services:
   dhcpd:
     image: isc-dhcpd_dhcpd
-    container_name: ata-dhcpd-rpi # This only works with 'docker-compose'
-    build: isc-dhcpd/. # This only works with 'docker-compose'
-    restart: always # This only works with 'docker-compose'
-    network_mode: "host" # This only works with 'docker-compose'
-    command: eth0 # Whatever bin or network device you want
-    volumes: # Wherever your data folder is
+    build: isc-dhcpd/.    # This only works with 'docker-compose'
+    restart: always       # This only works with 'docker-compose'
+    network_mode: "host"  # This only works with 'docker-compose'
+    command: eth0         # Whatever bin or network device you want
+    volumes:              # Wherever your data folder is
       - "/home/pi/ata-provserver-rpi/isc-dhcpd/data:/data"
 
   lighttpd:
     image: lighttpd_lighttpd
-    container_name: ata-lighttpd-rpi # This only works with 'docker-compose'
-    build: lighttpd/. # This only works with 'docker-compose'
-    restart: always # This only works with 'docker-compose'
+    build: lighttpd/.     # This only works with 'docker-compose'
+    restart: always       # This only works with 'docker-compose'
     ports:
       - "192.168.1.1:80:80"
-    volumes: # Wherever your folders are
+    volumes:              # Wherever your folders are
       - "/home/pi/ata-provserver-rpi/lighttpd/www-root:/var/www/localhost/htdocs"
       - "/home/pi/ata-provserver-rpi/lighttpd/etc/lighttpd:/etc/lighttpd"
