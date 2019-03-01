@@ -4,7 +4,7 @@
 2. sudo ./update-docker 
 3. sudo ./get-provfiles # downloads files from wherever they are stored (currently a private repo)
 4. sudo ./ata-provserver enable # Enables the service on boot of RPi
-5. sudo ./ata-provserver start (or reboot)
+5. sudo ./ata-provserver start (or reboot)  
 
 
 **To use:**
@@ -13,7 +13,7 @@
 2. Power on ATA
 3. Factory reset ATA
 4. Connect ATA to RPi
-  - Repeat with as many ATAs as there are ports on the switch
+  - Repeat with as many ATAs as there are ports on the switch  
 
 
 **What happens:**
@@ -23,10 +23,11 @@
 4. ATA asks for http://192.168.1.1/gs/htY0X.bin (the firmware)
   - ATA flashes some lights to show it's upgrading
 5. ATA reboots and checks for http://http://192.168.1.1/gs/cfg.xml which sets its config/firmware server to https://whatever.ca/prov
-6. Once ATA is plugged into a DHCP server without Option 160, it checks https://whatever.ca/prov
+6. Once ATA is plugged into a DHCP server without Option 160, it checks https://whatever.ca/prov  
 
 
-Assumes you're in the default /home directory of a stock Raspbian installation, /home/pi.
+Assumes you're in the default /home directory of a stock Raspbian installation, /home/pi.  
+
 
 **Uses these two programs within docker:**
 - ISC-DHCP server that has a custom option 160 set up for grandstreams HT70x/HT80x to provision/update over HTTP.
