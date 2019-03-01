@@ -22,8 +22,8 @@
   - Lease includes option 160, which overrides the default fm.grandstream and points the ATA config/firmware server @ http://192.168.1.1/gs
 4. ATA asks for http://192.168.1.1/gs/htY0X.bin (the firmware)
   - ATA flashes some lights to show it's upgrading
-5. ATA reboots and checks for http://http://192.168.1.1/gs/cfg.xml which sets its config/firmware server to https://earth.sunwire.ca/prov
-6. Once ATA is plugged into a DHCP server without Option 160, it checks https://earth.sunwire.ca/prov
+5. ATA reboots and checks for http://http://192.168.1.1/gs/cfg.xml which sets its config/firmware server to https://whatever.ca/prov
+6. Once ATA is plugged into a DHCP server without Option 160, it checks https://whatever.ca/prov
 
 
 Assumes you're in the default /home directory of a stock Raspbian installation, /home/pi.
