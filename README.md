@@ -25,8 +25,7 @@
 5. ATA reboots and checks for http://http://192.168.1.1/gs/cfg.xml which sets its config/firmware server to https://whatever.ca/prov
 6. Once ATA is plugged into a DHCP server without Option 160, it checks https://whatever.ca/prov  
 <br/>
-
-Assumes you're in the default /home directory of a stock Raspbian installation, /home/pi.  
+Note: Assumes you're in the default /home directory of a stock Raspbian installation, /home/pi.  
 <br/>
 
 **Uses these two programs within docker:**
@@ -36,6 +35,7 @@ Assumes you're in the default /home directory of a stock Raspbian installation, 
   - https://www.lighttpd.net/
 <br/>
 
+Some notes/articles here: https://github.com/brodyck/ata-provserver/tree/master/isc-dhcpd
 Explenation of DHCP options from Grandstream here: http://www.grandstream.com/sites/default/files/Resources/DHCP_Options_Guide_Linux_0.pdf
 <br/>
 
@@ -50,4 +50,4 @@ Should work out of the box after installing docker & docker compose on Raspbian 
 At the time of this writing, only working docker-compose is through PIP, so that's why it's included in the 'update-docker' script.
 <br/>
 
-Some notes/articles here: https://github.com/brodyck/ata-provserver/tree/master/isc-dhcpd
+
