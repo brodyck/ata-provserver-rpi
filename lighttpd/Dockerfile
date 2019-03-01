@@ -1,5 +1,3 @@
-# Dockerfile for lighttpd
-
 FROM alpine
 
 RUN apk add --update --no-cache \

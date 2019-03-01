@@ -1,4 +1,4 @@
-#1;5202;0c!/bin/ash
+#!/bin/ash
 # Changed the above to 'ash' because 'bash' doesn't actually exist on alpine
 
 set -e
@@ -47,7 +47,7 @@ if [ -n "${IFACE}" ]; then
     gid=$(stat -c%g "${data_dir}")
 
     # Alpine's default user-management system is a little different if you don't install 'shadow'
-    if ! grep /etc/passwd -e "dhcpd"; then
+    if ! grep -q /etc/passwd -e "dhcpd"; then
 	if [ ${uid} -ne 0 ]; then
 	    echo "Creating user 'dhcpd' now"
             adduser -u ${uid} dhcpd -D
@@ -73,7 +73,7 @@ if [ -n "${IFACE}" ]; then
     # fi    
 
     [ -e "${data_dir}/dhcpd.leases" ] || touch "${data_dir}/dhcpd.leases"
-    
+
     exec ${init} -- /usr/sbin/dhcpd -4 -f -d --no-pid -cf "${data_dir}/dhcpd.conf" -lf "${data_dir}/dhcpd.leases" ${IFACE}
 else
     # Run another binary

@@ -1,9 +1,0 @@
-#!/bin/bash
-
-serverDir="/home/pi/ata-provserver-rpi"
-startupScript="ata-provserver"
-
-cp -f ${serverDir}/${startupScript} /etc/init.d/${startupScript}
-
-update-rc.d ata-provserver defaults
-/etc/init.d/ata-provserver start

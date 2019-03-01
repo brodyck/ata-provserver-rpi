@@ -1,9 +1,5 @@
 #! /bin/bash
-# Following is here for notes
-# iptables --table nat -A POSTROUTING -o enx00e14c6800ef -j MASQUERADE
-# sysctl -w net.ipv4.ip_forward=1
 
 ip addr add 192.168.1.1/24 dev eth0
-#ip addr add 192.168.1.1/24 dev 
 sleep 2
 docker-compose -f /home/pi/ata-provserver-rpi/isc-dhcpd/docker-compose.yml up --build

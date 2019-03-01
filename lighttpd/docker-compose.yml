@@ -1,11 +1,7 @@
-# Docker Compose YAML file for lighttpd
-
 # build with:
 # $ sudo docker-compose build
-
 # start with:
 # $ sudo docker-compose up
-
 # after start, enter shell with:
 # $ sudo docker exec -it lighttpddocker_lighttpd_1 ash
 

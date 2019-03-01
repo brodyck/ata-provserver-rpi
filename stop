@@ -1,4 +1,0 @@
-#! /bin/bash
-
-docker-compose stop -f /home/pi/ata-provserver-rpi/docker-compose.yml
-ip addr del 192.168.1.1/24 dev eth0

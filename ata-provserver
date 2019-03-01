@@ -10,31 +10,77 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin
 workdir="/home/pi/ata-provserver-rpi"
+# Everything for 'docker-compose' goes after specifying the .yml
+dockercmd="docker-compose -f ${workdir}/docker-compose.yml"
+startupScript="/etc/init.d/ata-provserver"
 
 startServer(){
-    ${workdir}/start
+    ip addr add 192.168.1.1/24 dev eth0
+    sleep 2 # It takes 2 seconds for this to finalize but "ip addr" returns right away
+    ${dockercmd} up -d
+}
+
+enableServer(){    
+    if [ -e "${startupScript}" ]
+    then
+	echo "=> Re-installing as a service"
+	rm -f ${startupScript}
+    else
+	echo "=> Installing as a service"
+    fi
+    ln -sf ${workdir}/ata-provserver ${startupScript}
+    update-rc.d ata-provserver defaults
+    docker ps
 }
 
 stopServer(){
-    ${workdir}/stop
+    ${dockercmd} down
+    ip addr del 192.168.1.1/24 dev eth0
+}
+
+clearLeases(){
+    rm -f ${workdir}/isc-dhcpd/data/*.leases*
+}    
+
+disableServer(){
+    echo "=> Removing service"
+    stopserver
+    update-rc.d ata-provserver remove
+    rm /etc/init.d/ata-provserver
+}
+
+restartServer(){
+    stopServer
+    startServer
 }
 
 case "$1" in
   start)
       startServer
       exit 0
-  ;;
+      ;;
   stop)
       stopServer
       exit 0
-  ;;
+      ;;
   restart)      
-      stopServer
-      startServer
+      restartServer
       exit 0
-  ;;
+      ;;
+  enable)
+      enableServer
+      exit 0
+      ;;
+  disable)
+      disableServer
+      exit 0
+      ;;
+  clearlease)
+      clearLeases
+      exit 0
+      ;;
   *)
-      echo "Usage: /etc/init.d/ata-provserver {start|stop|restart}"
+      echo "Usage: /etc/init.d/ata-provserver {start | stop | restart | enable | disable | clearlease}"
       exit 1
   ;;
 esac

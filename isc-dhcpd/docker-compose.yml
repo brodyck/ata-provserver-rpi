@@ -9,9 +9,7 @@ services:
     container_name: dhcpd-alpine
     build: .
     network_mode: "host"
-#    command: enx0050b621aa4a
     command: eth0
     restart: always
     volumes:
       - "/home/pi/ata-provserver-rpi/isc-dhcpd/data:/data"
-
