@@ -23,9 +23,9 @@
 4. ATA asks for http://192.168.1.1/gs/htY0X.bin (the firmware)
     - ATA flashes some lights to show it's upgrading
 5. ATA reboots and checks for http://http://192.168.1.1/gs/cfg.xml which sets its config/firmware server to https://whatever.ca/prov
-6. Once ATA is plugged into a DHCP server without Option 160, it checks https://whatever.ca/prov and applies it  
-7. Ends with 'Power', 'Internet', on 80xs, with 'Link/Act' on 70xs
-<br/>
+6. Once ATA is plugged into a DHCP server without Option 160, it checks https://whatever.ca/prov and applies it
+7. Ends with 'Power', 'Internet', on 80xs, additionally 'Link/Act' on 70xs  
+
 Note: Assumes you're in the default /home directory of a stock Raspbian installation, /home/pi.  
 <br/>
 <br/>
