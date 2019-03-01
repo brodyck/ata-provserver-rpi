@@ -6,16 +6,14 @@
 4. sudo ./ata-provserver enable # Enables the service on boot of RPi
 5. sudo ./ata-provserver start (or reboot)  
 <br/>
-
 **To use:**
 1. Power on RPi (service takes maybe 2 minutes to start functioning? haven't timed it.)
     - Optionally plug RPi into switch
 2. Power on ATA
 3. Factory reset ATA
 4. Connect ATA to RPi
-    - Repeat with as many ATAs as there are ports on the switch  
+5. Repeat with as many ATAs as there are ports on the switch  
 <br/>
-
 **What happens:**
 1. 2 Docker services start up; ISC-DHCP and Lighttpd
 2. ISC-DHCP leases to ATA
@@ -27,6 +25,7 @@
 7. Ends with 'Power', 'Internet', on 80xs, with 'Link/Act' on 70xs
 <br/>
 Note: Assumes you're in the default /home directory of a stock Raspbian installation, /home/pi.  
+<br/>
 <br/>
 
 **Uses these two programs within docker:**
@@ -44,6 +43,7 @@ Explenation of DHCP options from Grandstream here: http://www.grandstream.com/si
 **todo:**
 - FTP service for editing configs remotely
 - possible option for auto-updating files in www-root/gs/ folder  
+<br/>
 <br/>
 
 Should work out of the box after installing docker & docker compose on Raspbian for the Raspberry Pi, and on anything else so long as the init-system and paths line up in the scripts.  
