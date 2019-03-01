@@ -1,4 +1,6 @@
 #! /bin/bash
+# If you want devices to connect to this device's internet connection, run:
+# iptables --table nat -A POSTROUTING -o ${whateverdevicehasinternet) -j MASQUERADE
 
 ip addr add 192.168.1.1/24 dev eth0
 sleep 2

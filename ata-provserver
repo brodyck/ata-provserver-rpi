@@ -44,7 +44,7 @@ clearLeases(){
 
 disableServer(){
     echo "=> Removing service"
-    stopserver
+    stopServer
     update-rc.d ata-provserver remove
     rm /etc/init.d/ata-provserver
 }
