@@ -19,11 +19,12 @@
 **What happens:**
 1. 2 Docker services start up; ISC-DHCP and Lighttpd
 2. ISC-DHCP leases to ATA
-  - Lease includes option 160, which overrides the default fm.grandstream and points the ATA config/firmware server @ http://192.168.1.1/gs
+  a. Lease includes option 160, which overrides the default fm.grandstream and points the ATA config/firmware server @ http://192.168.1.1/gs
 4. ATA asks for http://192.168.1.1/gs/htY0X.bin (the firmware)
-  - ATA flashes some lights to show it's upgrading
+  b. ATA flashes some lights to show it's upgrading
 5. ATA reboots and checks for http://http://192.168.1.1/gs/cfg.xml which sets its config/firmware server to https://whatever.ca/prov
-6. Once ATA is plugged into a DHCP server without Option 160, it checks https://whatever.ca/prov  
+6. Once ATA is plugged into a DHCP server without Option 160, it checks https://whatever.ca/prov and applies it  
+7. Ends with 'Power', 'Internet', on 80xs, with 'Link/Act' on 70xs
 <br/>
 Note: Assumes you're in the default /home directory of a stock Raspbian installation, /home/pi.  
 <br/>
@@ -31,7 +32,7 @@ Note: Assumes you're in the default /home directory of a stock Raspbian installa
 **Uses these two programs within docker:**
 - ISC-DHCP server that has a custom option 160 set up for grandstreams HT70x/HT80x to provision/update over HTTP.
   - https://www.isc.org/downloads/dhcp/
- - The HTTP server is lighttpd.
+- The HTTP server is lighttpd.
   - https://www.lighttpd.net/
 <br/>
 
@@ -40,8 +41,8 @@ Explenation of DHCP options from Grandstream here: http://www.grandstream.com/si
 <br/>
 
 **todo:**
-- [ ] FTP service for editing configs remotely
-- [ ] possible option for auto-updating files in www-root/gs/ folder  
+- FTP service for editing configs remotely
+- possible option for auto-updating files in www-root/gs/ folder  
 <br/>
 
 Should work out of the box after installing docker & docker compose on Raspbian for the Raspberry Pi, and on anything else so long as the init-system and paths line up in the scripts.  
