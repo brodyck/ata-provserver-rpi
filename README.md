@@ -6,6 +6,7 @@
 4. sudo ./ata-provserver enable # Enables the service on boot of RPi
 5. sudo ./ata-provserver start (or reboot)  
 <br/>
+
 **To use:**
 1. Power on RPi (service takes maybe 2 minutes to start functioning? haven't timed it.)
     - Optionally plug RPi into switch
@@ -14,6 +15,7 @@
 4. Connect ATA to RPi
 5. Repeat with as many ATAs as there are ports on the switch  
 <br/>
+
 **What happens:**
 1. 2 Docker services start up; ISC-DHCP and Lighttpd
 2. ISC-DHCP leases to ATA
