@@ -11,5 +11,6 @@ services:
     network_mode: "host"
     command: eth0
     restart: always
+    privileged: true
     volumes:
       - "/home/pi/ata-provserver-rpi/isc-dhcpd/data:/data"
