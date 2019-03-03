@@ -1,5 +1,5 @@
 #! /bin/sh
 
-ip addr add 192.168.1.1/24 dev eth0
+ip addr add 192.168.20.1/24 dev eth0
 sleep 2
 docker-compose -f /home/pi/ata-provserver-rpi/lighttpd/docker-compose.yml up --build

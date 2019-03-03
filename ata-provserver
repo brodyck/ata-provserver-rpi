@@ -15,7 +15,7 @@ dockercmd="docker-compose -f ${workdir}/docker-compose.yml"
 startupScript="/etc/init.d/ata-provserver"
 
 startServer(){
-    ip addr add 192.168.1.1/24 dev eth0
+    ip addr add 192.168.20.1/24 dev eth0
     sleep 2 # It takes 2 seconds for this to finalize but "ip addr" returns right away
     ${dockercmd} up -d
 }
@@ -35,7 +35,7 @@ enableServer(){
 
 stopServer(){
     ${dockercmd} down
-    ip addr del 192.168.1.1/24 dev eth0
+    ip addr del 192.168.20.1/24 dev eth0
 }
 
 clearLeases(){

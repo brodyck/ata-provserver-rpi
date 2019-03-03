@@ -20,7 +20,7 @@ services:
     build: lighttpd/.     # This only works with 'docker-compose'
     restart: always       # This only works with 'docker-compose'
     ports:
-      - "192.168.1.1:80:80"
+      - "192.168.20.1:80:80"
     volumes:              # Wherever your folders are
       - "/home/pi/ata-provserver-rpi/lighttpd/www-root:/var/www/localhost/htdocs"
       - "/home/pi/ata-provserver-rpi/lighttpd/etc/lighttpd:/etc/lighttpd"
