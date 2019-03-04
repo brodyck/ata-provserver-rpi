@@ -1,3 +1,8 @@
+## Does not include actual firmware or config files
+You must download/create those yourself
+
+---
+
 **To set up on stock Raspbian:**
 1. sudo git clone https://github.com/brodyck/ata-provserver-rpi.git
     - Make sure everything is executable 
