@@ -21,7 +21,7 @@ You must download/create those yourself
 6. Done 
 <br/>
 
-**What happens:**
+**What happens:**  
 0. Assuming the ‘cfg.xml’ file has this in it:
 <P192>whatever.ca/prov</P192>
 <P237>whatever.ca/prov</P237>
