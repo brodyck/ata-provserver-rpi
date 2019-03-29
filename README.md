@@ -23,9 +23,11 @@ You must download/create those yourself
 
 **What happens:**  
 0. Assuming the ‘cfg.xml’ file has this in it:  
-\<P192>whatever.ca/prov\</P192>  
-\<P237>whatever.ca/prov\</P237>  
-\<P212>2\</P212> # this is for HTTPS; 1 is for HTTP  
+```xml
+<P192>whatever.ca/prov</P192>
+<P237>whatever.ca/prov</P237>
+<P212>2</P212> # this is for HTTPS; 1 is for HTTP
+```  
 1. (at boot) Two Docker services start up; ISC-DHCP and Lighttpd
 2. DHCP leases IP to ATA
     - Lease includes DHCP option 160, which is a captive portal that overrides the default config server and points to http://192.168.20.1/gs
