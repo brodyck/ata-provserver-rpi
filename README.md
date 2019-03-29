@@ -5,31 +5,36 @@ You must download/create those yourself
 
 **To set up on stock Raspbian:**
 1. sudo git clone https://github.com/brodyck/ata-provserver-rpi.git
-    - Make sure everything is executable 
 2. sudo ./update-docker 
-3. sudo ./get-provfiles # downloads files from wherever they are stored (currently a private repo)
+3. Get the cfg.xml and firmware and put them in the root-www folder
+    - for my purposes, I run `sudo ./get-provfiles` which gets them from a private repo only I can access
 4. sudo ./ata-provserver enable # Enables the service on boot of RPi
 5. sudo ./ata-provserver start (or reboot)  
 <br/>
 
 **To use:**
-1. Power on RPi (service takes maybe 2 minutes to start functioning? haven't timed it.)
-    - Optionally plug RPi into switch
-2. Power on ATA
-3. Factory reset ATA
-4. Connect ATA to RPi
-5. Repeat with as many ATAs as there are ports on the switch  
+1. Plug RPi into power
+2. Plug ATAs into power
+3. Factory reset ATAs (if they are being reused)
+4. Plug ATAs into RPi, preferably by network switch for bulk
+5. Wait
+6. Done 
 <br/>
 
 **What happens:**
-1. 2 Docker services start up; ISC-DHCP and Lighttpd
-2. ISC-DHCP leases to ATA
-    - Lease includes option 160, which overrides the default fm.grandstream and points the ATA config/firmware server @ http://192.168.20.1/gs
-4. ATA asks for http://192.168.20.1/gs/htY0X.bin (the firmware)
-    - ATA flashes some lights to show it's upgrading
-5. ATA reboots and checks for http://http://192.168.20.1/gs/cfg.xml which sets its config/firmware server to https://whatever.ca/prov
-6. Once ATA is plugged into a DHCP server without Option 160, it checks https://whatever.ca/prov and applies it
-7. Ends with 'Power', 'Internet', on 80xs, additionally 'Link/Act' on 70xs  
+0. Assuming the ‘cfg.xml’ file has this in it:
+<P192>whatever.ca/prov</P192>
+<P237>whatever.ca/prov</P237>
+<P212>2</P212> # this is for HTTPS; 1 is for HTTP
+1. (at boot) Two Docker services start up; ISC-DHCP and Lighttpd
+2. DHCP leases IP to ATA
+    - Lease includes DHCP option 160, which is a captive portal that overrides the default config server and points to http://192.168.20.1/gs
+4. ATA asks for firmware from http://192.168.20.1/gs
+    - If the firmware is newer, ATA flashes some lights to show it's upgrading; this takes a minute or so
+5. ATA asks for cfg.xml from http://192.168.20.1/gs
+    - This is what sets the config server path to whatever.ca/prov
+    - Ends with 'Power' & 'Internet', on 80xs, additionally 'Link/Act' on 70xs
+6. Once ATA is plugged into a customer modem, it checks https://whatever.ca/prov and does whatever needs to be done
 
 Note: Assumes you're in the default /home directory of a stock Raspbian installation, /home/pi.  
 <br/>
