@@ -15,11 +15,11 @@ RUN echo "local_enable=YES" >> /etc/vsftpd/vsftpd.conf \
   && echo 'pasv_enable=Yes' >> /etc/vsftpd/vsftpd.conf \
   && echo 'pasv_max_port=10100' >> /etc/vsftpd/vsftpd.conf \
   && echo 'pasv_min_port=10090' >> /etc/vsftpd/vsftpd.conf \
-#  && sed -i "s/anonymous_enable=YES/anonymous_enable=NO/" /etc/vsftpd/vsftpd.conf
+  && sed -i "s/anonymous_enable=YES/anonymous_enable=YES/" /etc/vsftpd/vsftpd.conf
 
-ADD docker-entrypoint.sh /
+ADD entrypoint.sh /
 VOLUME /home/files
 
 EXPOSE 20 21 10090-10100
 
-CMD /docker-entrypoint.sh
+CMD /entrypoint.sh
