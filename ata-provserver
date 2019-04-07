@@ -15,12 +15,12 @@ dockercmd="docker-compose -f ${workdir}/docker-compose.yml"
 startupScript="/etc/init.d/ata-provserver"
 
 permissions(){
-    chmod +x vsftpd/entrypoint.sh
-    chmod +x isc-dhcpd/entrypoint.sh
-    chmod +x lighttpd/entrypoint.sh
-    chmod +x isc-dhcpd/start
-    chmod +x lighttpd/start
-    chmod -R 777 data
+    chmod +x ${workdir}/vsftpd/entrypoint.sh
+    chmod +x ${workdir}/isc-dhcpd/entrypoint.sh
+    chmod +x ${workdir}/lighttpd/entrypoint.sh
+    chmod +x ${workdir}/isc-dhcpd/start
+    chmod +x ${workdir}/lighttpd/start
+    chmod -R 777 ${workdir}/data
 }    
 
 startServer(){
