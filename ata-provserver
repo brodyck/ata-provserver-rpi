@@ -86,7 +86,7 @@ case "$1" in
       exit 0
       ;;
   refresh)
-      resfreshImages
+      refreshImages
       exit 0
       ;;
   enable)
