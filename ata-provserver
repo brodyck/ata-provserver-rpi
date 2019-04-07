@@ -20,6 +20,7 @@ permissions(){
     chmod +x lighttpd/entrypoint.sh
     chmod +x isc-dhcpd/start
     chmod +x lighttpd/start
+    chmod -R 777 data
 }    
 
 startServer(){
@@ -64,6 +65,13 @@ restartServer(){
     startServer
 }
 
+refreshImages(){
+    stopServer                                                                           
+    docker rmi -f $(docker images -a)
+    startServer
+}
+
+
 case "$1" in
   start)
       startServer
@@ -75,6 +83,10 @@ case "$1" in
       ;;
   restart)      
       restartServer
+      exit 0
+      ;;
+  refresh)
+      resfreshImages
       exit 0
       ;;
   enable)

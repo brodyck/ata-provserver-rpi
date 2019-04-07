@@ -16,3 +16,5 @@ services:
       - "192.168.20.1:10090-10100:10090-10100"
     volumes:              # Wherever your folders are
       - "/home/pi/ata-provserver-rpi/data:/home/files"
+    environment:
+      - PASSWORD=files
