@@ -14,13 +14,23 @@ workdir="/home/pi/ata-provserver-rpi"
 dockercmd="docker-compose -f ${workdir}/docker-compose.yml"
 startupScript="/etc/init.d/ata-provserver"
 
+permissions(){
+    chmod +x vsftpd/entrypoint.sh
+    chmod +x isc-dhcpd/entrypoint.sh
+    chmod +x lighttpd/entrypoint.sh
+    chmod +x isc-dhcpd/start
+    chmod +x lighttpd/start
+}    
+
 startServer(){
+    permissions
     ip addr add 192.168.20.1/24 dev eth0
     sleep 2 # It takes 2 seconds for this to finalize but "ip addr" returns right away
     ${dockercmd} up -d
 }
 
-enableServer(){    
+enableServer(){
+    permissions
     if [ -e "${startupScript}" ]
     then
 	echo "=> Re-installing as a service"
