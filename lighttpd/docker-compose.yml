@@ -14,5 +14,5 @@ services:
     ports:
       - "192.168.20.1:80:80"
     volumes:
-      - "/home/pi/ata-provserver-rpi/lighttpd/www-root:/var/www/localhost/htdocs"
+      - "/home/pi/ata-provserver-rpi/data:/var/www/localhost/htdocs"
       - "/home/pi/ata-provserver-rpi/lighttpd/etc/lighttpd:/etc/lighttpd"
