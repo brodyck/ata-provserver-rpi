@@ -3,6 +3,10 @@ You must download/create those yourself
 
 ---
 
+There is currently vsftpd built into this, but it's not working just yet. Having it there doesn't effect the usage of this.
+
+---
+
 **To set up on stock Raspbian:**
 1. sudo git clone https://github.com/brodyck/ata-provserver-rpi.git
 2. sudo ./update-docker 
