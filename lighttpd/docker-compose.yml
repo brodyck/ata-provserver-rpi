@@ -13,7 +13,7 @@ services:
     restart: always
     ports:
       - "192.168.20.1:80:80"
-      - "192.168.20.2:80:80"      
+#      - "192.168.20.2:80:80"      
     volumes:
       - "../data:/var/www/localhost/htdocs"
       - "./etc/lighttpd:/etc/lighttpd"
