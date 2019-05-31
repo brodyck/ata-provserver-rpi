@@ -9,5 +9,6 @@
 #ip addr add 192.168.20.1/24 dev enx0050b621aa4a
 ip addr add 192.168.20.1/24 dev eth0
 #ip addr add 192.168.10.1/24 dev enxa0cec8c66b7d
+#ip addr add 192.168.20.1/24 dev enx00249b304a2b #Startech adapter at work
 sleep 2
 docker-compose up --build

@@ -10,6 +10,7 @@ services:
     build: .
     network_mode: "host"
 #    command: enx0050b621aa4a
+#    command: enx00249b304a2b # startech adapter at work
     command: eth0    
     restart: always
     volumes:
